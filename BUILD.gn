@@ -1,0 +1,27 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+assert(is_mac)
+
+bundle_data("sparkle_framework_bundle_data") {
+  public_deps = [ ":build_sparkle_framework" ]
+
+  sources = [ "$root_out_dir/Sparkle.framework" ]
+  outputs = [ "{{bundle_contents_dir}}/Frameworks/{{source_file_part}}" ]
+}
+
+bundle_data("sparkle_resources_bundle_data") {
+  sources = [ "dsa_pub.pem" ]
+  outputs = [ "{{bundle_resources_dir}}/{{source_file_part}}" ]
+}
+
+action("build_sparkle_framework") {
+  script="build_sparkle_framework.py"
+
+  outputs = [
+    "$root_out_dir/Sparkle.framework",
+    "$root_out_dir/BinaryDelta"
+  ]
+}
+
