@@ -1,3 +1,44 @@
+# 1.24.0
+
+ * Prioritize UserDefaults when fetching value for EnableAutomaticChecks (Nicolas Bosi)
+ * Improve best appcast item selection handling (Ian Bytchek)
+ * Create lockfile for improved compatibility with 3rd party updaters (CoreCode)
+ * Enable SPM support via binary target (Jonas Zaugg)
+ * `generate_appcast` improvements:
+     * follow symbolic links (Denis Dzyubenko)
+     * update the release notes element’s URL when required (Brad Andalman)
+     * Added output filename option to generate_appcast (Brad Andalman)
+     * Added —release-notes-url-prefix to generate_appcast (Brad Andalman)
+     * Command line option to provide a download url prefix is now parsed and set on each archive item (Dominik H)
+     * Added help command line option (Dominik H)
+ * Locale updates:
+     * Update zh_CN localization (柳东原 · Dongyuan Liu)
+     * Update Sparkle.strings (Vojtěch Koňařík)
+     * Update Croatian (#1603) (milotype)
+     * Update SUUpdateAlert.xib (DanielFirlej)
+ * fix: read SUAutomaticallyUpdate from Info.plist (Trevor DeVore)
+ * Fix casting Boolean to BOOL on Apple Silicon (Kevin Wojniak)
+ * Use build matrix to test on multiple Xcode versions (Rajiv Shah)
+ * Set UpdateAlert and AutomaticUpdateAlert window's fullscreen collectionBehavior to NSWindowCollectionBehaviorFullScreenAuxiliary to allow them to present on top of the Main App's window if it's fullscreen. (Micah Moore)
+ * Fixed error about "about:blank" release notes (Louis Pontoise)
+ * Support App Store URL scheme in release note webview (Bi11)
+ * Use the SHA-256 hash of the archive as the cache path (Nate Weaver)
+ * Don't return an optional from the FileHandle method (Nate Weaver)
+ * Added URL+Hashing (Nate Weaver)
+
+# 1.23.0
+
+ * Support generating appcast with localizations (#1499) (Alik Vovkotrub)
+ * Support versions with git commit SHA (#1504) (Alec Larson)
+ * Hide "Skip..." and "Remind..." buttons when they're not relevant (#1480) (Kenneth Johnsen)
+ * Preserve Finder tags while updating apps (#1512) (CoreCode)
+ * Read-only update alert dialog formatting improvements (#1515) (Quinn Taylor)
+ * Check if `SUBundleName` is set before normalizing (Jake Fenton)
+ * `NSInteger` cast warning on Xcode 11 (Marga Keuvelaar)
+ * Correct appcast file extension (Tom Vos)
+ * Update Sparkle.strings (Emir Sarı)
+ * Fix spelling (#1508) (Frank Chiarulli Jr)
+
 # 1.22.0
 
  * Enabled "Hardened Runtime" build option for Apple's notarization requirement
@@ -6,15 +47,21 @@
  * Add phased rollout feature (#1381) (Fabian Jäger)
  * Ignore non-standard permissions in delta updates instead of failing the build (Kornel Lesiński)
  * Notify user when installed version is newer than the latest in the appcast (CoreCode)
+ * Reset timers after computer sleep (CoreCode)
  * Block-based alternatives to `NSInvocation`-based delegate methods (Fabian Jäger)
+ * Add delegate `userDidSkipThisVersion` (BobZombie, Leo Natan, bono yusuke)
  * Pass item to updaterShouldShowUpdateAlertForScheduledUpdate delegate method (George Nachman)
+ * Support providing private key as argument in `generate_appcast` (Yakuhzi, marchyang)
  * Separate the ed25519 sources into a new static library (Tony Arnold)
- * Correction of Czech localization inconsistency (#1403) (vojtakonarik)
  * Disambiguate signing error messages (Nate Weaver)
  * Use `XMLNode.Options.nodePrettyPrint` in `generate_appcast` instead of trying to add whitespace manually (fumoboy007)
  * Annotate SUHost for nullability (Michael Buckley)
  * Use SUAVAILABLE macro (Christiaan Hofman)
  * Fix warnings when using modules (nivekkagicom)
+ * Correction of Czech localization inconsistency (#1403) (vojtakonarik)
+ * BR locale fix (BR Lingo)
+ * Update Japanese localization (fujisoft)
+ * French Sparkle.strings (Jean-Baptiste)
 
 # 1.21.3
 
